@@ -44,6 +44,12 @@ function App() {
       setErrMsg("Please select a file to upload.");
       return;
     }
+
+    if (etfFile.type !== "text/csv") {
+      setErrMsg("Invalid file type. Please upload a CSV file.");
+      return;
+    }
+
     console.log("Uploading file:", etfFile);
 
     const formData = new FormData();
@@ -52,6 +58,10 @@ function App() {
     uploadEtfFile(formData)
       .then(response => {
         console.log("uploadEtfFile response:", response);
+        if (response.statusCode !== 200) {
+          setErrMsg(response.message);
+          return;
+        }
         setEtfTableData(response.data);
         setErrMsg("");
       })

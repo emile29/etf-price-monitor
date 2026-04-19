@@ -25,8 +25,13 @@ function loadHistoricalData() {
 
 function loadEtfFile(data) {
   let etfData = structuredClone(data);
-  loadedEtf = new ETF(etfData);
-  console.log('loadedEtf', loadedEtf.toString());
+  try {
+    loadedEtf = new ETF(etfData);
+    console.log('loadedEtf', loadedEtf.toString());
+  } catch (error) {
+    console.log('loadedEtf', error);
+    throw error;
+  }
 }
 
 function getLatestPrice(constituent) {

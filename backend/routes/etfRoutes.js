@@ -23,35 +23,39 @@ router.post("/uploadEtfFile", upload.single("file"), (req, res) => {
       // delete temp file
       fs.unlinkSync(file);
 
-      loadEtfFile(etfData);
-      for (let c of etfData) {
-        c["latestClosePrice"] = getLatestPrice(c.name);
-      }
+      try {
+        loadEtfFile(etfData);
+        for (let c of etfData) {
+          c["latestClosePrice"] = getLatestPrice(c.name);
+        }
 
-      res.json({ message: "ETF File processed successfully", data: etfData });
+        res.json({ statusCode: 200, message: "ETF File processed successfully", data: etfData });
+      } catch (error) {
+        res.status(400).json({ statusCode: 400, message: "Error: " + error.message });
+      }
     })
     .on("error", (err) => {
-      res.status(500).json({ message: "Error while processing ETF file!" });
+      res.status(500).json({ statusCode: 500, message: "Error while processing ETF file!" });
     });
 });
 
 router.get("/getEtfPriceByTime", (req, res) => {
   try {
     let result = getEtfPriceByTime();
-    res.json({ message: "Successfully retrieved ETF price over time", data: result });
+    res.json({ statusCode: 200, message: "Successfully retrieved ETF price over time", data: result });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: "Error while retrieving ETF price over time!" });
+    res.status(500).json({ statusCode: 500, message: "Error while retrieving ETF price over time!" });
   }
 });
 
 router.get("/getLatestTop5Holdings", (req, res) => {
   try {
     let result = getLatestTop5Holdings();
-    res.json({ message: "Successfully retrieved latest top 5 holdings", data: result });
+    res.json({ statusCode: 200, message: "Successfully retrieved latest top 5 holdings", data: result });
   } catch (error) {
     console.log(error);
-    res.status(500).json({ message: "Error while retrieving latest top 5 holdings!" });
+    res.status(500).json({ statusCode: 500, message: "Error while retrieving latest top 5 holdings!" });
   }
 });
 
