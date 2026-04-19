@@ -3,18 +3,18 @@
 ## Setup Instructions
 
 ### Backend
-cd backend
-npm install
-npm run dev
+`cd backend` \
+`npm install` \
+`npm run dev`
 
-### Backend
-cd frontend
-npm install
-npm run dev
+### Frontend
+`cd frontend` \
+`npm install` \
+`npm run dev`
 
 ## API
-POST /api/uploadEtfFile
-GET /api/getEtfPriceByTime
+POST /api/uploadEtfFile \
+GET /api/getEtfPriceByTime \
 GET /api/getLatestTop5Holdings
 
 ## Design and Implementation
