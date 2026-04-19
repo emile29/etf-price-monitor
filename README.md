@@ -2,6 +2,11 @@
 
 ## Setup Instructions
 
+### Prerequisites
+- Node.js and npm installed on your machine.
+- Requires at least Node v20.20.2
+- If older version, install via nvm `nvm install 20`
+
 ### Backend
 `cd backend` \
 `npm install` \
