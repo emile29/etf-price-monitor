@@ -1,0 +1,19 @@
+{
+  "name": "etf-price-monitor-backend",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js"
+  },
+  "dependencies": {
+    "@datastructures-js/priority-queue": "^6.3.5",
+    "cors": "^2.8.6",
+    "csv-parser": "^3.2.0",
+    "express": "^4.22.1",
+    "multer": "^2.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}

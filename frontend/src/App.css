@@ -1,0 +1,48 @@
+.header-section-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.page-header {
+  color: rgb(0, 132, 255);
+}
+
+.err-msg {
+  margin-top: 40px;
+  color: red;
+}
+
+.input-file-bar {
+  padding: 5px;
+  width: 400px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  margin-right: 5px;
+}
+
+.upload-button {
+  padding: 8px 10px;
+  border: 1px solid #333;
+  border-radius: 5px;
+}
+
+.upload-button:hover {
+  cursor: pointer;
+}
+
+.top-section {
+  display: flex;
+}
+
+.etf-table-container {
+  width: 48%;
+  margin-right: 2%;
+}
+
+.bar-chart-container {
+  width: 50%;
+}
+
+.etf-table-container, .bar-chart-container, .etf-price-graph-container {
+  margin-top: 40px;
+}
